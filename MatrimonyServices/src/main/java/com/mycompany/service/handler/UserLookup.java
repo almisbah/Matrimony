@@ -1,25 +1,18 @@
 package com.mycompany.service.handler;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+
+
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.Element;
 
-import org.apache.commons.lang.StringEscapeUtils;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -31,9 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.util.HtmlUtils;
 import org.w3c.dom.Document;
-
 import com.mycompany.commons.HTTPUtils;
-import com.mycompany.entity.NounService;
 import com.mycompany.entity.Users;
 @Controller
 
@@ -41,7 +32,7 @@ import com.mycompany.entity.Users;
 
 public class UserLookup implements  LookupServiceInterface, ApplicationContextAware{
 
-	//http://examples.javacodegeeks.com/enterprise-java/spring/jpaorm/spring-hibernate-mysql-and-maven-showcase/
+	//http://examples.javacodegeeks.com/enterprise-java/spring/jpaorm/spring-hiblernate-mysql-and-maven-showcase/
 	HttpServletResponse res;
 	
 	ApplicationContext context;
@@ -79,14 +70,14 @@ public class UserLookup implements  LookupServiceInterface, ApplicationContextAw
 		response.setCharacterEncoding("UTF-8");
 		try {
 			String g = HTTPUtils.returnChar(i);
-			NounService s = (NounService) context.getBean("nounService");
+			//NounService s = (NounService) context.getBean("nounService");
 			
-			if(s !=null){				
+			/*if(s !=null){				
 				String queryString = (s.findEmployeeById(v).getName());
 							
 				
 				return queryString;
-			}
+			}*/
 			return g;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -104,14 +95,14 @@ public class UserLookup implements  LookupServiceInterface, ApplicationContextAw
 			o.setId(v);
 			o.setMeaning(request.getParameter("meaning"));
 			o.setName(HTTPUtils.returnChar(request.getParameter("ne")));
-			//context.getBean("nounService");		
-			NounService s = (NounService) context.getBean("nounService");
-			s.persistEmployee(o);
+			context.getBean("nounService");		
+			//NounService s = (NounService) context.getBean("nounService");
+			//s.persistEmployee(o);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(request.getParameter("word"));
+		
 		return (request.getParameter("word"));
 	}
 	

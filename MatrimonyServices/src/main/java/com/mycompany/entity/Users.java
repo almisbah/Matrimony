@@ -39,12 +39,12 @@ public class Users {
 		this.ne = name;
 	}
 
-	public String getMeaning() {
-		return meaning;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMeaning(String meaning) {
-		this.meaning = meaning;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

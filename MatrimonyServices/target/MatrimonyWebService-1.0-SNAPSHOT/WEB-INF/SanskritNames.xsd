@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2007 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:en="http://mycompany.com/Sanskrit/schemas"
+           elementFormDefault="qualified"
+           targetNamespace="http://mycompany.com/Sanskrit/schemas">
+    <xs:element name="SanskritNameCatagoryRequest">
+        <xs:complexType>
+            <xs:all>                
+                <xs:element name="catagoryName" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="SanskritNameCatagoryResponse">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="catagoryList" type="en:CatagoryType"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+    <xs:element name="SaveSanskritNameRequest">
+        <xs:complexType>
+            <xs:all> 
+            	<xs:element name="parentCatagoryName" type="xs:string"/>               
+                <xs:element name="catagoryName" type="xs:string"/>
+                <xs:element name="englishName" type="xs:string"></xs:element>
+                <xs:element name="sanskritName" type="xs:string"></xs:element>
+                <xs:element name="imageName" type="xs:string"></xs:element>
+                <xs:element name="description" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="SaveSanskritNameResponse">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="response" type="en:GenericResponseType"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+    
+    <xs:complexType name="GenericResponseType">
+        <xs:sequence>
+            <xs:element name="desc" type="xs:date"/>
+            <xs:element name="respCode" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CatagoryType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+</xs:schema>
