@@ -93,7 +93,7 @@ public class UserLookup implements  LookupServiceInterface, ApplicationContextAw
 		try {
 			Users o = new Users();
 			o.setId(v);
-			o.setMeaning(request.getParameter("meaning"));
+			o.setEmail(request.getParameter("email"));
 			o.setName(HTTPUtils.returnChar(request.getParameter("ne")));
 			context.getBean("nounService");		
 			//NounService s = (NounService) context.getBean("nounService");
