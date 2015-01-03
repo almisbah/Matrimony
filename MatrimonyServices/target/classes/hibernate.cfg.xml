@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <hibernate-configuration> -->
+<!--     <session-factory> -->
+<!--         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property> -->
+<!--         <property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521/XE</property> -->
+<!--         <property name="hibernate.connection.username">username</property> -->
+<!--         <property name="hibernate.connection.password">pass</property> -->
+<!--         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> -->
+
+<!--         <property name="show_sql">true</property> -->
+<!--         <mapping class="com.foo.domain.News"></mapping> -->
+<!--     </session-factory> -->
+<!-- </hibernate-configuration> -->
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="com.mycompany.Nouns"></mapping>
+    </session-factory>
+</hibernate-configuration>
